@@ -9,7 +9,6 @@ package sysrepo
 import "C"
 
 import (
-	"fmt"
 	"unsafe"
 )
 
@@ -159,7 +158,6 @@ func (c Core) NotificationSend(
 	timeoutMs C.uint32_t,
 	wait C.int,
 ) error {
-	fmt.Println("gg")
 	rc := C.sr_notif_send_tree(session, notification, timeoutMs, wait)
 
 	return ParseError(rc)
